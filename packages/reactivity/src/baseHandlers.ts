@@ -5,6 +5,7 @@ export const mutableHandlers = {
     if (key === ReactiveFlags.IS_REACTIVE) {
       return true;
     }
+    track(target, key);
     return Reflect.get(target, key, receiver);
   },
   set(target, key, value, receiver) {
